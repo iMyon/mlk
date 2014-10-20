@@ -55,8 +55,8 @@ function get_detail_info(url, atk_type, name, star){
     var hp_max, prop, atk_max, atk_mount, during, distance;
     $html.find("th").each(function(){
       if(this.innerHTML == "覚醒MAX"){
-        if(!hp_max) hp_max = parseInt($(this).next().html().replace(",", ""));
-        if(!atk_max) atk_max = parseInt($(this).next().next().html().replace(",", ""));
+        if(!hp_max) hp_max = parseInt($(this).next().html().replace(/,|\./, ""));
+        if(!atk_max) atk_max = parseInt($(this).next().next().html().replace(/,|\./, ""));
       }
       else if(this.innerHTML == "属性"){
         if(!prop) prop = $(this).parent().next().find("td").eq(1).html();

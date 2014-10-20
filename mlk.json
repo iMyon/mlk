@@ -761,13 +761,13 @@
   "url": "http://xn--cckza4aydug8bd3l.gamewith.jp/article/show/2600",
   "img": "https://s3-ap-northeast-1.amazonaws.com/gamewith/img/75bd7a8c536e69cdcee373909fa4da5b.png",
   "hp_max": 5385,
-  "atk_max": 9,
+  "atk_max": 9655,
   "during": 2.45,
   "distance": 160,
   "atk_mount": 1,
   "atk_type": "弓矢",
-  "dps_one": 3,
-  "dps_many": 3
+  "dps_one": 3940,
+  "dps_many": 3940
 }, {
   "prop": "炎",
   "star": "2",
