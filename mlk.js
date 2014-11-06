@@ -26,8 +26,8 @@ var Charictor = function(prop, star, name, url, img, hp_max, atk_max, during, di
 };
 
 $("h3").each(function(){
-  if(this.innerHTML.match("武器種別、出身国別")){
-    $(this).next().next().next().find("a").each(function(){
+  if(this.innerHTML.match("武器種別一覧")){
+    $(this).next().find("a").each(function(){
       weapon_type.push(new WeaponType(this.innerHTML, this.href.replace("メルクストーリア", "xn--cckza4aydug8bd3l")));
     });
   }
