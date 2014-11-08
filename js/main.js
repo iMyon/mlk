@@ -14,9 +14,10 @@ var mlk_table = {
     var f_star = $("#star").val();
     var f_prop = $("#prop").val();
     var f_atk_type = $("#atk_type").val();
+    var is_distance = $("#c_distance").is (":checked");
     for(var i=0; i<datas.length; i++){
       var data = datas[i];
-      if(!this.filter(data, f_star, f_prop, f_atk_type))
+      if(!this.filter(data, f_star, f_prop, f_atk_type, is_distance))
         continue;
       var tr = 
       "<tr>"
@@ -37,10 +38,11 @@ var mlk_table = {
     //lazyload
     $("img").lazyload();
   },
-  filter: function(data, star, prop, atk_type){
+  filter: function(data, star, prop, atk_type, is_distance){
     if(star != 0 && data.star != star) return false;
     if(prop != 0 && data.prop != prop) return false;
     if(atk_type != 0 && data.atk_type != atk_type) return false;
+    if(is_distance && data.distance <= 155) return false;
     return true;
   },
   clear: function(){
@@ -50,7 +52,7 @@ var mlk_table = {
 
 mlk_table.init();
 
-$(".tr_filter select").change(function(){
+$(".tr_filter select, .tr_filter input").change(function(){
   mlk_table.build(mlk_table.datas);
 });
 
