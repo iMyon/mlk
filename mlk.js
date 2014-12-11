@@ -59,16 +59,16 @@ function get_detail_info(url, atk_type, name, star){
         if(!atk_max) atk_max = parseInt($(this).next().next().html().replace(/,|\./, ""));
       }
       else if(this.innerHTML == "属性"){
-        if(!prop) prop = $(this).parent().next().find("td").eq(1).html();
+        if(!prop) prop = $(this).parent().next().find("td").eq($(this).prevAll().length).html();
       }
       else if(this.innerHTML == "同時攻撃数"){
-        if(!atk_mount) atk_mount = parseFloat($(this).parent().next().find("td").eq(0).html());
+        if(!atk_mount) atk_mount = parseFloat($(this).parent().next().find("td").eq($(this).prevAll().length).html());
       }
       else if(this.innerHTML == "リーチ"){
-        if(!distance) distance = parseFloat($(this).parent().next().find("td").eq(2).html());
+        if(!distance) distance = parseFloat($(this).parent().next().find("td").eq($(this).prevAll().length).html());
       }
       else if(this.innerHTML == "攻撃間隔"){
-        if(!during) during = parseFloat($(this).parent().next().find("td").eq(1).html());
+        if(!during) during = parseFloat($(this).parent().next().find("td").eq($(this).prevAll().length).html());
       }
     });
     var charictor = new Charictor(prop, star, name, url, img, hp_max, atk_max, during, distance, atk_mount, atk_type);
