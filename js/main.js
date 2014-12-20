@@ -21,6 +21,7 @@ var mlk_table = {
         continue;
       var tr = 
       "<tr>"
+        + "<td>" + data.url.match(/\d*$/)[0] +"</td>"
         + "<td align='center'><img width='50' data-original='" + data.img +"'/></td>"
         + "<td><a href="+ data.url +" >" + data.name +"</a></td>"
         + "<td>" + data.star +"</td>"
@@ -40,7 +41,7 @@ var mlk_table = {
   },
   filter: function(data, star, prop, atk_type, is_distance){
     if(star != 0 && data.star != star) return false;
-    if(prop != 0 && data.prop != prop) return false;
+    if(prop != 0 && data.prop[0] != prop) return false;
     if(atk_type != 0 && data.atk_type != atk_type) return false;
     if(is_distance && data.distance <= 155) return false;
     return true;
