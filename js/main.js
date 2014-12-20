@@ -62,8 +62,8 @@ $(".tr_title th").click(function(){
   var datas = mlk_table.datas.sort(function(a, b){
     var v1 = eval("a."+value);
     var v2 = eval("b."+value);
-    if(v1 > v2) return false;
-    return true;
+    if(v1 > v2) return -1;
+    return 1;
   });
   mlk_table.build(datas);
 });
