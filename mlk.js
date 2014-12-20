@@ -75,3 +75,4 @@ function get_detail_info(url, atk_type, name, star){
     card_detail.push(charictor);
   });
 }
+//JSON.stringify(card_detail);
