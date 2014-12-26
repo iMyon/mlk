@@ -9,7 +9,7 @@ var obj_prop = function(name, url){
   this.name = name;
   this.url = url;
 };
-var Charictor = function(prop, star, name, url, img, hp_max, atk_max, during, distance, atk_mount, atk_type){
+var Charictor = function(prop, star, name, url, img, hp, hp_max, atk, atk_max, during, distance, atk_mount, atk_type, grow_type){
   this.prop = prop;
   this.star = star;
   this.name = name;
@@ -21,6 +21,9 @@ var Charictor = function(prop, star, name, url, img, hp_max, atk_max, during, di
   this.distance = distance;
   this.atk_mount = atk_mount;
   this.atk_type = atk_type;
+  this.hp = hp;
+  this.atk = atk;
+  this.grow_type = grow_type;
   this.dps_one = ~~(atk_max/during);
   this.dps_many = ~~(atk_max*atk_mount/during);
 };
@@ -104,13 +107,13 @@ function get_detail_info(url, name, star){
         grow_type = parseFloat($(this).parent().next().find("td").eq($(this).prevAll().length).html());
     });
     //计算满觉数据
+    var ty = grow_type == "早熟" ? 1:2;
+    var ty = grow_type == "晚成" ? 3:2;
     if(!hp_max){
-      var ty = grow_type == "早熟" ? 1:2;
-      var ty = grow_type == "晚成" ? 3:2;
       var hp_max = hp_init*(1.8 + 0.1 * ty)+parseInt(hp_init*(0.8+0.1*ty)/(20+star*10-1))*75;
       var atk_max = atk_init*(1.8 + 0.1 * ty)+parseInt(atk_init*(0.8+0.1*ty)/(20+star*10-1))*75;
     }
-    var charictor = new Charictor(prop, star, name, url, img, hp_max, atk_max, during, distance, atk_mount, atk_type);
+    var charictor = new Charictor(prop, star, name, url, img, hp_init, hp_max, atk_init, atk_max, during, distance, atk_mount, atk_type, ty);
     card_detail.push(charictor);
   });
 }
